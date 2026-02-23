@@ -4,6 +4,11 @@ Trabalho de implementação da matéria de Conceitos de Linguagem de Programaç�
 # Diogo Avila Fraga
 # 20103419
 
+# Necessário
+python:
+import 
+import
+
 # Comandos
 gcc -shared -o mandelbrot.dll -fPIC mandelbrot.c
 python interface.py
