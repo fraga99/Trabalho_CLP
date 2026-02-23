@@ -1,0 +1,92 @@
+[
+    {
+        "label": "ctypes",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "ctypes",
+        "description": "ctypes",
+        "detail": "ctypes",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "lib",
+        "kind": 5,
+        "importPath": "interface",
+        "description": "interface",
+        "peekOfCode": "lib = ctypes.CDLL (\"./mandelbrot.dll\")\n# Definição dos argumentos\nlib.calcular_mandelbrot.argtypes = [\n    ctypes.c_int, ctypes.c_int,\n    ctypes.c_double, ctypes.c_double,\n    ctypes.c_double, ctypes.c_double,\n    ctypes.c_int,\n    ctypes.POINTER(ctypes.c_int)\n]\n# Parâmetros",
+        "detail": "interface",
+        "documentation": {}
+    },
+    {
+        "label": "lib.calcular_mandelbrot.argtypes",
+        "kind": 5,
+        "importPath": "interface",
+        "description": "interface",
+        "peekOfCode": "lib.calcular_mandelbrot.argtypes = [\n    ctypes.c_int, ctypes.c_int,\n    ctypes.c_double, ctypes.c_double,\n    ctypes.c_double, ctypes.c_double,\n    ctypes.c_int,\n    ctypes.POINTER(ctypes.c_int)\n]\n# Parâmetros\nlargura = 800\naltura = 600",
+        "detail": "interface",
+        "documentation": {}
+    },
+    {
+        "label": "largura",
+        "kind": 5,
+        "importPath": "interface",
+        "description": "interface",
+        "peekOfCode": "largura = 800\naltura = 600\nmax_iter = 100\nxmin, xmax = -2.0, 1.0\nymin, ymax = -1.5, 1.5\n# Array para receber o resultado\nresultado = np.zeros(largura * altura, dtype=np.int32)\n# Chamada de função em C\nlib.calcular_mandelbrot (\n    largura, altura,",
+        "detail": "interface",
+        "documentation": {}
+    },
+    {
+        "label": "altura",
+        "kind": 5,
+        "importPath": "interface",
+        "description": "interface",
+        "peekOfCode": "altura = 600\nmax_iter = 100\nxmin, xmax = -2.0, 1.0\nymin, ymax = -1.5, 1.5\n# Array para receber o resultado\nresultado = np.zeros(largura * altura, dtype=np.int32)\n# Chamada de função em C\nlib.calcular_mandelbrot (\n    largura, altura,\n    xmin, xmax,",
+        "detail": "interface",
+        "documentation": {}
+    },
+    {
+        "label": "max_iter",
+        "kind": 5,
+        "importPath": "interface",
+        "description": "interface",
+        "peekOfCode": "max_iter = 100\nxmin, xmax = -2.0, 1.0\nymin, ymax = -1.5, 1.5\n# Array para receber o resultado\nresultado = np.zeros(largura * altura, dtype=np.int32)\n# Chamada de função em C\nlib.calcular_mandelbrot (\n    largura, altura,\n    xmin, xmax,\n    ymin, ymax,",
+        "detail": "interface",
+        "documentation": {}
+    },
+    {
+        "label": "resultado",
+        "kind": 5,
+        "importPath": "interface",
+        "description": "interface",
+        "peekOfCode": "resultado = np.zeros(largura * altura, dtype=np.int32)\n# Chamada de função em C\nlib.calcular_mandelbrot (\n    largura, altura,\n    xmin, xmax,\n    ymin, ymax,\n    max_iter,\n    resultado.ctypes.data_as(ctypes.POINTER(ctypes.c_int))\n)\n# Converte para matriz 2D",
+        "detail": "interface",
+        "documentation": {}
+    },
+    {
+        "label": "imagem",
+        "kind": 5,
+        "importPath": "interface",
+        "description": "interface",
+        "peekOfCode": "imagem = resultado.reshape((altura, largura))\n# Mostra a imagem\nplt.imshow(imagem, cmap = \"inferno\")\nplt.colorbar()\nplt.title(\"Fractal de Mendelbrot - C e Python\")\nplt.show()",
+        "detail": "interface",
+        "documentation": {}
+    }
+]
